@@ -1,4 +1,30 @@
+class State
+	
+	def initialize
+		@table
+		@rows
+	end
 
+	def get_table
+		@table = exists("table") {$driver.find_elements(:css, "table")}
+		return @table[0]
+	end
+
+	def next?
+		@table = get_table
+		@rows = @table.find_elements(:css, 'tr')
+		@nav = @rows[-1]
+		anchors = $driver.find_elements(:css, "a")
+		found = false
+		anchors.each do |x|
+			if x.text.include? "next"
+				found = true
+			end
+			puts found
+		end
+	end
+
+end
 # Navigates to site passed as parameter, then verifies that it's loaded.
 def nav_to(url)
   $driver.get url
