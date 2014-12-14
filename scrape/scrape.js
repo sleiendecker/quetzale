@@ -91,34 +91,34 @@ var ba = require('beer-advocate-api');
 
 
 
-// async.each(beers, function(beer, callback){
-//   ba.beerSearch(beer, function(beerData) {
-//   	var beerJSON = JSON.parse(beerData);
-//   	if(beerJSON.length > 0){
-// 	  	console.log(beerJSON[0].beer_url);
-// 	  	ba.beerPage(beerJSON[0].beer_url, function(berr){
-// 	  		console.log(berr);
-// 	  		callback(null);
-// 	  	});
-//   	}
-// 	});
-// });
+async.each(beers, function(beer, callback){
+  ba.beerSearch(beer, function(beerData) {
+  	var beerJSON = JSON.parse(beerData);
+  	if(beerJSON.length > 0){
+	  	console.log(beerJSON[0].beer_url);
+	  	ba.beerPage(beerJSON[0].beer_url, function(berr){
+	  		console.log(berr + ", ");
+	  		callback(null);
+	  	});
+  	}
+	});
+});
 
 
 
 // /////////////  WEBDRIVER /////////////
 
-var webdriver = require('selenium-webdriver');
+// var webdriver = require('selenium-webdriver');
 
-var driver = new webdriver.Builder().
-   withCapabilities(webdriver.Capabilities.chrome()).
-   build();
+// var driver = new webdriver.Builder().
+//    withCapabilities(webdriver.Capabilities.chrome()).
+//    build();
 
-driver.get('http://www.maxs.com');
-var items = driver.findElements(webdriver.By.css('.content li'));
-
-
- console.log(items);
+// driver.get('http://www.maxs.com');
+// var items = driver.findElements(webdriver.By.css('.content li'));
 
 
-driver.quit();
+//  console.log(items);
+
+
+// driver.quit();

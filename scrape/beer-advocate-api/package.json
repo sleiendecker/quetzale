@@ -1,0 +1,33 @@
+{
+  "name": "beer-advocate-api",
+  "version": "0.0.5",
+  "description": "Unofficial library for working with Beer Advocate data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "beer advocate",
+    "beer",
+    "api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stursby/beer-advocate-api.git"
+  },
+  "author": {
+    "name": "Charlie Hield"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "~0.13.0",
+    "request": "~2.30.0"
+  },
+  "readme": "Beer Advocate API\n=================\n\nBeer Advocate API is an unofficial JavaScript library for working with http://beeradvocate.com data.\n\nGetting started\n---------------\n\nBeer Advocate API can be installed via [NPM](https://www.npmjs.org/). (For more on NPM, see thin [introduction](http://howtonode.org/05896bb828f0d7e9251dd5b4cfd72350896990bd/introduction-to-npm)). Make sure you’re in your projects directory, and run the following:\n\n```bash\n$ npm install beer-advocate-api\n```\n\nIncluding the library\n---------------------\n\nNext, make sure to include Beer Advocate API in your project.\n\n```javascript\nvar ba = require('beer-advocate-api');\n```\n\nDocumentation\n=============\n\nSee the online [docs](http://stursby.github.io/beer-advocate-api) here.\n\nBeers\n-----\n\n### Search\n\nSearch for a beer\n\n```javascript\nba.beerSearch(\"Anchor Steam\", function(beers) {\n    console.log(beers);\n});\n```\n\nExample response\n\n```json\n[\n    {\n        \"beer_name\": \"Anchor Steam Beer\",\n        \"beer_url\": \"/beer/profile/28/63/\",\n        \"brewery_name\": \"Anchor Brewing Company\",\n        \"brewery_location\": \"San Francisco, California\",\n        \"brewery_url\": \"/beer/profile/28/\",\n        \"retired\": false\n    },\n    {\n        \"beer_name\": \"Drop Anchor Steam Beer\",\n        \"beer_url\": \"/beer/profile/952/9899/\",\n        \"brewery_name\": \"Great Dane Pub & Brewing Company (Downtown)\",\n        \"brewery_location\": \"Madison, Wisconsin\",\n        \"brewery_url\": \"/beer/profile/952/\",\n        \"retired\": true\n    },\n    {\n        \"beer_name\": \"Anchor's Away Steam Beer\",\n        \"beer_url\": \"/beer/profile/1313/23018/\",\n        \"brewery_name\": \"Lucky Labrador Brewing Company\",\n        \"brewery_location\": \"Portland, Oregon\",\n        \"brewery_url\": \"/beer/profile/1313/\",\n        \"retired\": true\n    },\n    {\n        \"beer_name\": \"Dry Hopped Steam Beer\",\n        \"beer_url\": \"/beer/profile/28/129664/\",\n        \"brewery_name\": \"Anchor Brewing Company\",\n        \"brewery_location\": \"San Francisco, California\",\n        \"brewery_url\": \"/beer/profile/28/\",\n        \"retired\": false\n    }\n]\n```\n\n\n### Beer page\n\nGet a specific beer page\n\n```javascript\nba.beerPage(\"/beer/profile/29223/84343/\", function(beer) {\n    console.log(beer);\n});\n```\n\nExample response\n\n```json\n[\n    {\n        \"beer_name\": \"Furious\",\n        \"beer_style\": \"\",\n        \"beer_abv\": \"6.20%\",\n        \"brewery_name\": \"Surly Brewing Company\",\n        \"brewery_state\": \"\",\n        \"brewery_country\": \"\",\n        \"ba_score\": \"96\",\n        \"ba_rating\": \"world-class\",\n        \"bros_score\": \"-\",\n        \"bros_rating\": \"no score\",\n        \"ratings\": \"4,021\",\n        \"reviews\": \"1,379\",\n        \"rAvg\": \"4.33\",\n        \"pDev\": \"9.24%\"\n    }\n]\n```\n\n### Top reviews\n\nGet a specific beer’s reviews from top reviewers\n\n```javascript\nba.beerTopReviews(\"/beer/profile/29223/84343/\", 1, function(reviews) {\n    console.log(reviews);\n});\n```\n\nExample response\n\n```json\n[\n    {\n        \"reviewer\": \"Sammy\",\n        \"reviewer_url\": \"/community/members/sammy.3853/\",\n        \"rating\": \"3.95\",\n        \"rating_max\": \"5\",\n        \"attributes\": {\n            \"look\": \"4\",\n            \"smell\": \"4\",\n            \"taste\": \"4\",\n            \"feel\": \"3.5\",\n            \"overall\": \"4\"\n        },\n        \"review_text\": \"Very fresh and good can obtained by John. Citrus hop aroma, yet well tamed. Cloudy orange and lacey. A big IBU and yet a very good ornage, tangerine, grapefruit taste and drinkability. A good examle of a pale that used tobe called an IPA(if not a DIPA by some) .Recommended.\",\n        \"serving_type\": \"can\",\n        \"date\": \"11-28-2012 04:40:39\"\n    }\n]\n```\n\n\nBreweries\n=========\n\n### Search\n\nSearch for a brewery\n\n```javascript\nba.brewerySearch(\"Big Sky Brewing Company\", function(brewery) {\n    console.log(brewery);\n});\n```\n\nExample response\n\n```json\n[\n    {\n        \"brewery_name\": \"Big Sky Brewing Company\",\n        \"brewery_url\": \"/beer/profile/751/\",\n        \"brewery_location\": \"Missoula, Montana\"\n    }\n]\n``\n\n\n### Brewery page\n\nGet a specific brewery page\n\n```javascript\nba.breweryPage(\"/beer/profile/2137/\", function(brewery) {\n    console.log(brewery);\n});\n```\n\nExample response\n\n```json\n[\n    {\n        \"brewery_name\": \"Big Sky Brewing Company\",\n        \"brewery_rating\": {\n            \"score\": \"94\",\n            \"text\": \"outstanding\",\n            \"count\": \"20\",\n            \"reviews\": \"4\",\n            \"rAvg\": \"4.3\",\n            \"pDev\": \"9.53%\"\n        },\n        \"active_beers\": \"35\",\n        \"beer_ratings\": \"6,837\",\n        \"beer_avg\": \"3.73\",\n        \"taps\": \"0\",\n        \"bottles\": \"0\",\n        \"cask\": false,\n        \"beer_to_go\": true\n    }\n]\n```\n\nAcknowledgements\n----------------\n\nBeer Advocate API is not associated with the \u0003Beer Advocate or it’s magazine. \u0003We’re fans. And love what they do.\n\n**Beer Advocate API** is authored and maintained by [Charlie Hield](https://twitter.com/charliehield) with help from its contributors:\n\n * [Kevin Schaul](https://github.com/kevinschaul)\n * [Aaron Bieber](https://github.com/qbit)\n * [Len Boyette](https://github.com/kevlened)\n\n© 2014, Charlie Hield under the [MIT License](http://www.opensource.org/licenses/mit-license.php).\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/stursby/beer-advocate-api/issues"
+  },
+  "_id": "beer-advocate-api@0.0.5",
+  "_from": "beer-advocate-api@"
+}
