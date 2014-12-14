@@ -1,50 +1,41 @@
-require_relative 'local'
-require_relative 'functions'
-require_relative 'get_beer_urls'
-require_relative 'beers_by_brewery'
+require 'selenium-webdriver'
 
+$driver = Selenium::WebDriver.for(:phantomjs)
 
+$driver.get("http://maxs.com")
+content = $driver.find_elements(:css, ".content")
+beers = content[2].find_elements(:css, "li")
 
-RSpec.configure do |c|
-
-  c.include AllureRSpec::Adaptor
-
-  c.before(:all) do
-    #intialize selenium session
-    $driver = Selenium::WebDriver.for(:firefox)
-
-    #for headless testing
-    # $driver = Selenium::WebDriver.for(:phantomjs)
-    
-    # $driver.manage.window.resize_to(1920,1280)
-
-    nav_to("http://www.beeradvocate.com/place/directory/0/US/")
-    # sleep 1
-    
-    countries = get_countries
-
-  end
-
-  c.after(:all) do
-    $driver.quit
-  end
-end
-
-AllureRSpec.configure do |c|
-  c.output_dir = "results/allure"
-end
-
-
-describe 'Get US brews' do
-	it 'gets all of the beers' do |e|
-		# e.step "get the countries" do
-		# 	countries = get_countries
-		# end
-		e.step "click the first country" do
-			open_country(1)
-			handle_breweries_link
-	end
+names = []
+beers.each do |x|
+	if !(x.text.empty?)
+		# names << x.text
+		names << '"' + x.text + '",'
 	end
 end
 
 
+# method = build_array
+
+
+# open and write to a file with ruby
+open('node2.js', 'w') { |f|
+  # f.puts build_array(names)
+  f.puts "var async = require('async');"
+	f.puts "var ba = require('beer-advocate-api');"
+  f.print "beers = ["
+  f.puts names
+  f.puts "]"
+  f.puts "async.each(beers, function(beer, callback){
+  ba.beerSearch(beer, function(beerData) {
+  	var beerJSON = JSON.parse(beerData);
+  	if(beerJSON.length > 0){
+	  	//console.log(beerJSON[0].beer_url);
+	  	ba.beerPage(beerJSON[0].beer_url, function(berr){
+	  		console.log(berr);
+	  		callback(null);
+	  	});
+  	}
+	});
+});"
+}
