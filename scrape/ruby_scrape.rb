@@ -26,11 +26,15 @@ open('node2.js', 'w') { |f|
   f.print "beers = ["
   f.puts names
   f.puts "]"
+  f.puts "console.log('var list = [')"
   f.puts "async.each(beers, function(beer, callback){
+
   ba.beerSearch(beer, function(beerData) {
   	var beerJSON = JSON.parse(beerData);
+
   	if(beerJSON.length > 0){
 	  	//console.log(beerJSON[0].beer_url);
+
 	  	ba.beerPage(beerJSON[0].beer_url, function(berr){
 	  		console.log(berr);
 	  		callback(null);
@@ -38,4 +42,5 @@ open('node2.js', 'w') { |f|
   	}
 	});
 });"
+f.puts "console.log('];');"
 }
