@@ -2,5 +2,5 @@
 # ruby -v	
 
 
-ruby 1.rb;
+ruby ruby_scrap.rb;
 node node2.js;

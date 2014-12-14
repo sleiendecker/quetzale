@@ -1,0 +1,19 @@
+{
+  "name": "(sampletodo)",
+  "version": "0.0.0",
+  "description": "sample todo app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "Sam",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "express": "~4.10.5",
+    "ejs": "~1.0.0",
+    "body-parser": "~1.10.0"
+  }
+}
