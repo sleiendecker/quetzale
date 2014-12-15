@@ -265,7 +265,7 @@ displayNames(beers);
 
 function displayNames(arr) {
     
-    var table = document.getElementById("id01").getElementsByTagName("tbody")[0];
+    var table = document.getElementById("myTable");
     for(i = 0; i < arr.length; i++) {
         var newTr = table.insertRow(-1);
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].brewery_name));

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<!-- <script src="tablesorter/jquery-latest.js"></script> 
+<script src="tablesorter/jquery.tablesorter.js"></script> 
+ -->
+<script src="jquery-1.11.1.min.js"></script>
+<!-- <script src="code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -53,6 +57,8 @@
     <div class="row">
 
       <div style="margin-top: 10%">
+        <a class="button button-primary" href="#">Max's Taphouse</a>
+        <a class="button" href="#">Brewer's Cask</a>
         <h2>Brewers Cask</h2>
         <!-- <table class="u-full-width">
           <tr>
@@ -63,15 +69,18 @@
             <th>Ratings</th>
           </tr>
         </table> -->
-        <table class="u-full-width" id="id01">
-
+        <table class="u-full-width tablesorter" id="myTable">
+          <thead>
             <th>Brewery</th>
             <th>Beer</th>
             <th>ABV</th>
             <th>BA Score</th>
             <th>Bros Score</th>
             <th>Ratings</th>
-
+          </thead>
+          <tbody>
+          </tbody>
+            
         </table>
       </div>
     </div>

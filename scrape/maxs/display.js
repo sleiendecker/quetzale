@@ -1084,17 +1084,18 @@ displayNames(beers);
 
 function displayNames(arr) {
     
-    var table = document.getElementById("id01").getElementsByTagName("tbody")[0];
+    var table = document.getElementById("myTable");
     for(i = 0; i < arr.length; i++) {
         var newTr = table.insertRow(-1);
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].brewery_name));
-        // newTr.insertCell(-1).appendChild(document.createTextNode('<a href=' + arr[i].breer_url +'>'+ arr[i].brewery_name'</a>'));
+        // newTr.insertCell(-1).appendChild(document.createTextNode('<a href="google.com">Google</a>' ));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].beer_name));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].beer_abv));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].ba_score));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].bros_score));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].ratings));
         // newTr.insertCell(-1).appendChild(document.createTextNode(ages[i]));
+
     }
     }
 
