@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+  var myHeader = $('#my_fixable_table_header');
+  myHeader.data( 'position', myHeader.position() );
+  $(window).scroll(function(){
+    var hPos = myHeader.data('position'), scroll = getScroll();
+    if ( hPos.top < scroll.top ){
+        myHeader.addClass('fixed');
+    }
+    else {
+        myHeader.removeClass('fixed');
+    }
+});
+
+function getScroll () {
+    var b = document.body;
+    var e = document.documentElement;
+    return {
+        left: parseFloat( window.pageXOffset || b.scrollLeft || e.scrollLeft ),
+        top: parseFloat( window.pageYOffset || b.scrollTop || e.scrollTop )
+    };
+}
+
+  </script>
 <!-- <script src="tablesorter/jquery-latest.js"></script> 
 <script src="tablesorter/jquery.tablesorter.js"></script> 
  -->
-<script src="jquery-1.11.1.min.js"></script>
+
 <!-- <script src="code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 
   <!-- Basic Page Needs
@@ -69,6 +93,8 @@
             <th>Ratings</th>
           </tr>
         </table> -->
+        <table id='my_fixable_table_header'>
+        </table>
         <table class="u-full-width tablesorter" id="myTable">
           <thead>
             <th>Brewery</th>
