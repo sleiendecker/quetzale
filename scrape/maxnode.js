@@ -100,10 +100,13 @@ beers = ["Achouffe La Chouffe",
 " New Belgium La Folie",
 ]
 async.each(beers, function(beer, callback){
+
   ba.beerSearch(beer, function(beerData) {
   	var beerJSON = JSON.parse(beerData);
+
   	if(beerJSON.length > 0){
 	  	//console.log(beerJSON[0].beer_url);
+
 	  	ba.beerPage(beerJSON[0].beer_url, function(berr){
 	  		console.log(berr);
 	  		callback(null);
