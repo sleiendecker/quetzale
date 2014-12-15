@@ -114,3 +114,36 @@ async.each(beers, function(beer, callback){
   	}
 	});
 });
+
+
+// new way
+
+// bar1.json
+// [beerlist]
+
+
+// var bar1beers = require('bar1beers.json');
+// var bar2 = require('bar2.json');
+
+// var bars = [
+// 	{ name: 'bar1', beers: bar1beers },
+// 	{ name: 'bar1', beers: bar1beers },
+// 	{ name: 'bar1', beers: bar1beers },
+// 	{ name: 'bar1', beers: bar1beers },
+// ]
+
+// async.each(beers, function(beer, callback){
+
+//   ba.beerSearch(beer, function(beerData) {
+//   	var beerJSON = JSON.parse(beerData);
+
+//   	if(beerJSON.length > 0){
+// 	  	//console.log(beerJSON[0].beer_url);
+
+// 	  	ba.beerPage(beerJSON[0].beer_url, function(berr){
+// 	  		console.log(berr);
+// 	  		callback(null);
+// 	  	});
+//   	}
+// 	});
+// });
