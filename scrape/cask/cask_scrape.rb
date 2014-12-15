@@ -1,10 +1,12 @@
 require 'selenium-webdriver'
+require_relative '../functions'
 
 $driver = Selenium::WebDriver.for(:phantomjs)
+# $driver = Selenium::WebDriver.for(:firefox)
 
-$driver.get("http://maxs.com")
-content = $driver.find_elements(:css, ".content")
-beers = content[2].find_elements(:css, "li")
+$driver.get("http://www.brewerscask.com/beer-menu/")
+# content = $driver.find_elements(:css, ".content")
+beers = exists('beers') {$driver.find_elements(:css, ".beername")}
 
 names = []
 beers.each do |x|
@@ -19,14 +21,14 @@ end
 
 
 # open and write to a file with ruby
-open('node2.js', 'w') { |f|
+open('casknode.js', 'w') { |f|
   # f.puts build_array(names)
   f.puts "var async = require('async');"
 	f.puts "var ba = require('beer-advocate-api');"
   f.print "beers = ["
   f.puts names
   f.puts "]"
-  f.puts "console.log('var list = [')"
+  
   f.puts "async.each(beers, function(beer, callback){
 
   ba.beerSearch(beer, function(beerData) {
@@ -42,5 +44,9 @@ open('node2.js', 'w') { |f|
   	}
 	});
 });"
-f.puts "console.log('];');"
 }
+
+
+
+$driver.quit
+

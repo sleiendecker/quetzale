@@ -99,7 +99,6 @@ beers = ["Achouffe La Chouffe",
 "Zeffer Zesty Citrus Cider",
 " New Belgium La Folie",
 ]
-console.log('var list = [')
 async.each(beers, function(beer, callback){
 
   ba.beerSearch(beer, function(beerData) {
@@ -115,4 +114,3 @@ async.each(beers, function(beer, callback){
   	}
 	});
 });
-console.log('];');
