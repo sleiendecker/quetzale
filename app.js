@@ -2,6 +2,13 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 
+var beers = [
+    { name: "Bourboun County Brand Stout", rating: "4.5", style: "Imperial Stout", abv: "2%", yours: "Rate this beer?" },
+    { name: "Shrek", rating: "5", style: "Swamp", abv: "100%", yours: "Rate this beer?" },
+    { name: "Donkey", rating: "3.5", style: "Eddie Murphey", abv: "20%", yours: "Rate this beer?" },
+    { name: "Katniss Everdeen", rating: "4", style: "Lager", abv: "2.2%", yours: "Rate this beer?" },
+    { name: "Dennis Pitta", rating: "2", style: "Injured", abv: "15.2%", yours: "Rate this beer?" }
+];
 /**
 *	Configuring Express
 */
@@ -21,9 +28,9 @@ app.get('/', function (req, res) {
 /**
 *	API
 */
-// app.get('/api/todos', function(req, res, next){
-// 	res.send(todos);
-// });
+ app.get('/api/getbeers', function(req, res, next){
+ 	res.send(beers);
+ });
 
 // app.post('/api/todos', function(req, res, next){
 // 	var newTodo = req.body.todo || null;
