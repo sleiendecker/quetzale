@@ -1087,9 +1087,15 @@ function displayNames(arr) {
     var table = document.getElementById("myTable");
     for(i = 0; i < arr.length; i++) {
         var newTr = table.insertRow(-1);
-        newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].brewery_name));
-        // newTr.insertCell(-1).appendChild(document.createTextNode('<a href="google.com">Google</a>' ));
-        newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].beer_name));
+        var aTag = document.createElement('a');
+        aTag.setAttribute('href',arr[i].beer_url);
+        aTag.innerHTML = arr[i].beer_name;
+
+        // newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].brewery_name));
+        newTr.insertCell(-1).appendChild(aTag);
+        
+        // newTr.insertCell(-1).appendChild(document.createTextNode('<a href='' + google.com">Google</a>' ));
+        // newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].beer_name));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].beer_abv));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].ba_score));
         newTr.insertCell(-1).appendChild(document.createTextNode(arr[i].bros_score));
@@ -1099,3 +1105,5 @@ function displayNames(arr) {
     }
     }
 
+
+// <tr><td><a href="http://beeradvocate.com/beer/profile/306/1212/">Blue Moon Belgian White</a></td><td>5.40%</td><td>78</td><td>80</td><td>5,740</td></tr>
