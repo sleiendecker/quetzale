@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+// var routes = require('./routes'); LEFT OFF HERE (TRYING TO FIGURE OUT ROUTES)
 
 var beers = [
     { name: "Bourboun County Brand Stout", rating: "4.5", style: "Imperial Stout", abv: "2%", yours: "Rate this beer?" },
@@ -22,7 +23,11 @@ app.use(bodyParser.json());
 *	Routes
 */
 app.get('/', function (req, res) {
-  res.render('index.ejs');
+  // Jamison's Version
+  // res.render('index.ejs');
+
+  // Sam's Version
+    res.render('skelecask.ejs');
 });
 
 /**

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="/js/libs/jquery/dist/jquery.min.js"></script>
+  
+  <script type="text/javascript">
+  var myHeader = $('#my_fixable_table_header');
+  myHeader.data( 'position', myHeader.position() );
+  $(window).scroll(function(){
+    var hPos = myHeader.data('position'), scroll = getScroll();
+    if ( hPos.top < scroll.top ){
+        myHeader.addClass('fixed');
+    }
+    else {
+        myHeader.removeClass('fixed');
+    }
+});
+
+function getScroll () {
+    var b = document.body;
+    var e = document.documentElement;
+    return {
+        left: parseFloat( window.pageXOffset || b.scrollLeft || e.scrollLeft ),
+        top: parseFloat( window.pageYOffset || b.scrollTop || e.scrollTop )
+    };
+}
+
+  </script>
+<!-- <script src="tablesorter/jquery-latest.js"></script> 
+<script src="tablesorter/jquery.tablesorter.js"></script> 
+ -->
+
+<!-- <script src="code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Brewers Cask</title>
+  
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+
+</head>
+<body>
+
+<!-- 
+<script type="text/javascript">
+  $.ajax({
+    url: '/',
+    success: function(data) {
+    $( "#effect" ).show( selectedEffect, options, 500, callback );
+}
+});
+</script>
+ -->
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <!-- <div class="container">
+    <div class="row">
+      <h1>Brewers Cask</h1>
+    </div>
+  </div> -->
+  
+  <!-- <div class="container">
+    <div class="row">
+      <div class= "two columns">Name</div>
+      <div class= "two columns">ABV</div>
+      <div class= "two columns">BA Score</div>
+      <div class= "two columns">Bros Scoare</div>
+      <div class= "two columns">Ratings</div>
+     </div>-->
+  <div class="container">
+    
+    <div class="row">
+
+      <div style="margin-top: 10%">
+        <a class="button button-primary" href="/skelemax.ejs">Max's Taphouse</a>
+        <a class="button" href="#">Brewer's Cask</a>
+        <h2>Brewers Cask</h2>
+        <!-- <table class="u-full-width">
+          <tr>
+            <th>Name</th>
+            <th>ABV</th>
+            <th>BA Score</th>
+            <th>Bros Score</th>
+            <th>Ratings</th>
+          </tr>
+        </table> -->
+        <table id='my_fixable_table_header'>
+        </table>
+        <table class="u-full-width tablesorter" id="myTable">
+          <thead>
+            <th>Brewery</th>
+            <th>Beer</th>
+            <th>ABV</th>
+            <th>BA Score</th>
+            <th>Bros Score</th>
+            <th>Ratings</th>
+          </thead>
+          <tbody>
+          </tbody>
+            
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="/js/display.js"></script>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
