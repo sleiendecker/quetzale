@@ -1,0 +1,16 @@
+body {
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-position: left top;
+  width:100%;
+}
+
+.main-search {
+  top:450px;
+  left:450px;
+}
+
+.skelemax {
+  width:600px;
+  top:500px;
+}
