@@ -1,0 +1,52 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'beer-advocate-api',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose cache add [ 'beer-advocate-api', null ]
+5 verbose cache add name=undefined spec="beer-advocate-api" args=["beer-advocate-api",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'beer-advocate-api',
+6 verbose parsed url   path: 'beer-advocate-api',
+6 verbose parsed url   href: 'beer-advocate-api' }
+7 silly lockFile aaa7e0df-beer-advocate-api beer-advocate-api
+8 verbose lock beer-advocate-api /Users/samleiendecker/.npm/aaa7e0df-beer-advocate-api.lock
+9 silly lockFile aaa7e0df-beer-advocate-api beer-advocate-api
+10 silly lockFile aaa7e0df-beer-advocate-api beer-advocate-api
+11 verbose addNamed [ 'beer-advocate-api', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 3685d28f-beer-advocate-api beer-advocate-api@
+14 verbose lock beer-advocate-api@ /Users/samleiendecker/.npm/3685d28f-beer-advocate-api.lock
+15 silly addNameRange { name: 'beer-advocate-api', range: '*', hasData: false }
+16 verbose registry.get https://registry.npmjs.org/beer-advocate-api not expired, no request
+17 silly addNameRange number 2 { name: 'beer-advocate-api', range: '*', hasData: true }
+18 silly addNameRange versions [ 'beer-advocate-api', [] ]
+19 error TypeError: Cannot read property 'latest' of undefined
+19 error     at next (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:219:35)
+19 error     at /usr/local/lib/node_modules/npm/lib/cache/add-named.js:207:5
+19 error     at RegClient.get_ (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:130:14)
+19 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:49:12)
+19 error     at evalmachine.<anonymous>:272:14
+19 error     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
+19 error     at Object.oncomplete (evalmachine.<anonymous>:108:15)
+20 error If you need help, you may report this *entire* log,
+20 error including the npm and node versions, at:
+20 error     <http://github.com/npm/npm/issues>
+21 error System Darwin 14.0.0
+22 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "beer-advocate-api" "--save-dev"
+23 error cwd /Users/samleiendecker/apps/quetzale/scrape/Alewife
+24 error node -v v0.10.35
+25 error npm -v 1.4.28
+26 error type non_object_property_load
+27 verbose exit [ 1, true ]

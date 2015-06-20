@@ -53,7 +53,7 @@ app.get('/', function (req, res) {
 /**
 *	Initializing Server
 */ 
-var server = app.listen(3000, function () {
+var server = app.listen(3030, function () {
 
   var host = 'localhost';
   var port = server.address().port;
